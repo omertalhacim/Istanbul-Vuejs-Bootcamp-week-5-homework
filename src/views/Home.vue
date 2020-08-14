@@ -44,19 +44,11 @@ export default {
   },
   methods: {
     voteUp(item) {
-      if (item.voteCount != null) {
-        item.voteCount += 1;
-      } else {
-        item.voteCount = 1;
-      }
+      item.voteCount += 1;
     },
     voteDown(item) {
-      if (item.voteCount != null) {
-        if (item.voteCount != 0) {
-          item.voteCount -= 1;
-        }
-      } else {
-        item.voteCount = 0;
+      if (item.voteCount != 0) {
+        item.voteCount -= 1;
       }
     },
   },

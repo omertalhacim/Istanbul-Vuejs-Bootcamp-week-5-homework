@@ -20,6 +20,9 @@ export default {
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
         this.$store.commit("setAllItems", response.data);
+        for(let item of this.$store.state.allItems){
+          item.voteCount = 0;
+        }
       });
   },
 };
