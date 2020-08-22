@@ -20,9 +20,15 @@ export default {
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
         this.$store.commit("setAllItems", response.data);
-        for(let item of this.$store.state.allItems){
+        /*for(let item of this.$store.state.allItems){
           item.voteCount = 0;
-        }
+        }*/
+        this.$store.state.allItems = this.$store.state.allItems.map((item) => {
+          return {
+            ...item,
+            voteCount: 0,
+          }
+        })
       });
   },
 };
